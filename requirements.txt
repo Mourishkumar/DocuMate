@@ -1,0 +1,17 @@
+requests
+numpy
+python-dotenv
+pymongo
+tqdm
+fastapi
+python-multipart
+chromadb
+python-docx
+PyPDF2
+beautifulsoup4
+python-pptx
+openpyxl
+sentence-transformers
+lingua-language-detector
+easyocr
+opencv-python

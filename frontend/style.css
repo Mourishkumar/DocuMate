@@ -1,0 +1,296 @@
+/* --- Import Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;500&display=swap');
+
+/* --- General Setup --- */
+:root {
+  --bg-primary: #0d1b2a;
+  --bg-secondary: rgba(27, 38, 59, 0.7);
+  --text-primary: #e0e1dd;
+  --text-secondary: #778da9;
+  --border-color: #415a77;
+  --accent-color: #00d4ff;
+  --accent-hover: #6a5acd;
+  --user-bubble-bg: rgba(0, 212, 255, 0.2);
+  --user-bubble-text: #00d4ff;
+  --bot-bubble-bg: rgba(106, 90, 205, 0.2);
+  --bot-bubble-text: #cfcfff;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- Background Aurora Animation --- */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: var(--text-primary);
+  background: linear-gradient(-45deg, #0d1b2a, #1b263b, #415a77, #6a5acd, #00d4ff);
+  background-size: 400% 400%;
+  animation: aurora 15s ease infinite;
+}
+
+@keyframes aurora {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  width: 300px;
+  background: rgba(20, 30, 50, 0.55);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-right: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 20px var(--shadow-color);
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+.sidebar.open { transform: translateX(0); }
+.close-sidebar {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+}
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.sidebar h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #00d4ff, #6a5acd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(0, 212, 255, 0.7);
+  margin: 0;
+}
+.card {
+  background: rgba(20, 30, 50, 0.5);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+.control-group h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #00d4ff, #6a5acd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 6px rgba(0, 212, 255, 0.6);
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+/* --- Inputs & Buttons --- */
+#doc-selector,
+#file-input {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background: rgba(20, 30, 50, 0.9);
+  color: var(--text-primary);
+  border: 1px solid var(--accent-color);
+  padding: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, #00d4ff, #6a5acd);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.8);
+}
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.9);
+}
+
+/* --- File Upload Futuristic Button --- */
+#file-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--accent-color);
+  overflow: hidden;
+  background: rgba(20, 30, 50, 0.9);
+  color: var(--text-primary);
+  padding: 0; /* remove inner padding */
+}
+
+/* Button part */
+#file-input::file-selector-button {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #00d4ff, #6a5acd);
+  color: #fff;
+  border: none;
+  border-right: 1px solid var(--accent-color);
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px rgba(0, 212, 255, 0.6);
+  border-radius: 0; /* remove rounded edges inside */
+}
+
+#file-input::file-selector-button:hover {
+  background: linear-gradient(90deg, #00e5ff, #7b5aff);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.8);
+}
+
+/* --- Chat Area --- */
+.chat-area {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.mobile-header {
+  display: none;
+  padding: 12px 20px;
+  background: rgba(20, 30, 50, 0.6);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  align-items: center;
+  justify-content: space-between;
+}
+.mobile-header h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  color: var(--accent-color);
+  text-shadow: 0 0 6px rgba(0, 212, 255, 0.7);
+}
+#messages-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.message {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  animation: fadeInUp 0.3s ease-in-out;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+.user-message {
+  background: var(--user-bubble-bg);
+  color: var(--user-bubble-text);
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+.bot-message {
+  background: var(--bot-bubble-bg);
+  color: var(--bot-bubble-text);
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+}
+.fade-in { animation: fadeInUp 0.4s ease; }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+#chat-form {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(20, 30, 50, 0.6);
+  position: sticky;
+  bottom: 0;
+}
+#message-input {
+  flex-grow: 1;
+  padding: 12px 18px;
+  border-radius: 20px;
+  border: 1px solid var(--accent-color);
+  background: rgba(15, 25, 40, 0.9);
+  color: var(--text-primary);
+  margin-right: 10px;
+}
+#chat-form button {
+  width: auto;
+  border-radius: 50%;
+  padding: 12px;
+}
+
+/* --- Theme Switcher (kept for toggle logic) --- */
+.theme-switcher {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+.theme-switcher input { display: none; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.2);
+  transition: 0.4s;
+  border-radius: 24px;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 18px; width: 18px;
+  left: 3px; bottom: 3px;
+  background: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background: var(--accent-color);
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    transform: translateX(-100%);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .close-sidebar { display: block; }
+  .mobile-header { display: flex; }
+}

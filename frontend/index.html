@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocuMate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar / Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h1>DocuMate</h1>
+        <div class="theme-switcher">
+          <input type="checkbox" id="theme-toggle">
+          <label for="theme-toggle" class="slider"></label>
+        </div>
+        <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="control-group card">
+        <h2><i class="fas fa-upload"></i> Upload Document</h2>
+        <form id="upload-form">
+          <input type="file" id="file-input" required>
+          <button type="submit"><i class="fas fa-cloud-arrow-up"></i> Upload</button>
+          <div id="upload-status" class="status-message"></div>
+        </form>
+      </div>
+
+      <div class="control-group card">
+        <h2><i class="fas fa-file-alt"></i> Select Document</h2>
+        <select id="doc-selector">
+          <option value="">-- Please select a document --</option>
+        </select>
+        <div id="selection-status" class="status-message"></div>
+      </div>
+    </aside>
+
+    <!-- Chat Area -->
+    <main class="chat-area">
+      <header class="mobile-header">
+        <button id="menuToggle" class="menu-toggle"><i class="fas fa-bars"></i></button>
+        <h2>DocuMate</h2>
+      </header>
+
+      <div id="messages-container">
+        <div class="message bot-message fade-in">
+          <p>Hello! Please upload and select a document from the left panel to begin chatting.</p>
+        </div>
+      </div>
+
+      <form id="chat-form">
+        <input type="text" id="message-input" placeholder="Chat with your document...">
+        <button type="submit" id="send-button"><i class="fas fa-paper-plane"></i></button>
+      </form>
+    </main>
+  </div>
+
+  <script src="/static/script.js"></script>
+  <script>
+    // Mobile sidebar toggle
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('sidebar').classList.add('open');
+    });
+    document.getElementById('closeSidebar').addEventListener('click', () => {
+      document.getElementById('sidebar').classList.remove('open');
+    });
+  </script>
+</body>
+</html>
