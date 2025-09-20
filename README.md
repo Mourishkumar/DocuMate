@@ -1,12 +1,11 @@
 # 📄 DocuMate AI – Multilingual Document Chatbot 🤖🌍
 
-DocuMate AI is an **AI-powered document chatbot** that allows users to upload PDF files and interact with them conversationally.  
-It supports **multilingual documents**, enabling seamless question answering across different languages.
-
+DocuMate AI is an **AI-powered document and image chatbot** that lets you upload **PDFs and images**, then ask natural language questions to extract insights.  
+It supports **multilingual document understanding** using embeddings, OCR, and LLMs.
 ---
 
 ## 🚀 Features
-- 📂 Upload and process PDF documents  
+- 📂 Upload and process PDF documents and images  
 - 💬 Ask natural language questions and get precise answers  
 - 🌍 **Multilingual support** – works with:  
   - English  
