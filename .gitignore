@@ -1,11 +1,65 @@
+# ---------------------------
+# Python
+# ---------------------------
 __pycache__/
 *.py[cod]
-.venv/
+*.pyo
+*.pyd
+*.so
+*.egg-info/
 .env
-chroma_db/
+.venv/
+env/
+venv/
+
+# ---------------------------
+# FastAPI / Logs
+# ---------------------------
 *.log
-*.sqlite
-/node_modules/
-/dist/
-/build/
-/.DS_Store
+*.sqlite3
+
+# ---------------------------
+# Node / Frontend
+# ---------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+frontend/package-lock.json
+
+# ---------------------------
+# IDE / Editors
+# ---------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---------------------------
+# OS / System
+# ---------------------------
+.DS_Store
+Thumbs.db
+
+# ---------------------------
+# Docker
+# ---------------------------
+/data/
+docker-data/
+mongo-data/
+ollama-data/
+
+# ---------------------------
+# Documents / Private Files
+# ---------------------------
+documents/
+*.pdf
+*.jpg
+*.jpeg
+*.png
+
+
+# ---------------------------
+# Others
+# ---------------------------
+__MACOSX/
